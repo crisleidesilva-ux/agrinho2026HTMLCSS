@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Rural - Estoque de Ração</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+    <aside class="menu-lateral">
+        <div class="logo">🐄</div>
+        <h2>Ração Rural</h2>
+        <p>Painel de controle</p>
+
+        <div class="atalho ativo">📊 Dashboard</div>
+        <div class="atalho">📦 Estoque</div>
+        <div class="atalho">🌱 Sustentabilidade</div>
+    </aside>
+
+    <main class="conteudo">
+        <header class="topo">
+            <div>
+                <h1>Controle de Estoque de Ração</h1>
+                <p>Monitore entradas, saídas e saldo de forma simples.</p>
+            </div>
+            <div class="selo">Agro sustentável</div>
+        </header>
+
+        <section class="cards-status">
+            <div class="card principal">
+                <span>Saldo atual</span>
+                <strong><span id="saldoAtual">0</span> kg</strong>
+                <p>Quantidade disponível no estoque</p>
+            </div>
+
+            <div class="card entrada">
+                <span>Total de entradas</span>
+                <strong><span id="totalEntradas">0</span> kg</strong>
+                <p>Ração comprada ou produzida</p>
+            </div>
+
+            <div class="card saida">
+                <span>Total de saídas</span>
+                <strong><span id="totalSaidas">0</span> kg</strong>
+                <p>Ração utilizada no manejo</p>
+            </div>
+        </section>
+
+        <section class="area-principal">
+            <div class="painel-form">
+                <h2>Nova movimentação</h2>
+
+                <label for="tipoRacao">Tipo de ração</label>
+                <input type="text" id="tipoRacao" placeholder="Ex: Engorda, leiteira, bezerros">
+
+                <label for="movimento">Movimento</label>
+                <select id="movimento">
+                    <option value="entrada">Entrada no estoque</option>
+                    <option value="saida">Saída do estoque</option>
+                </select>
+
+                <label for="quantidade">Quantidade em kg</label>
+                <input type="number" id="quantidade" min="1" placeholder="Ex: 80">
+
+                <button id="registrar">Registrar movimentação</button>
+
+                <div id="mensagem"></div>
+            </div>
+
+            <div class="painel-grafico">
+                <h2>Resumo visual</h2>
+
+                <div class="grafico-item">
+                    <p>Entradas</p>
+                    <div class="barra">
+                        <div id="barraEntrada" class="preenchimento entrada-barra"></div>
+                    </div>
+                </div>
+
+                <div class="grafico-item">
+                    <p>Saídas</p>
+                    <div class="barra">
+                        <div id="barraSaida" class="preenchimento saida-barra"></div>
+                    </div>
+                </div>
+
+                <div class="grafico-item">
+                    <p>Saldo</p>
+                    <div class="barra">
+                        <div id="barraSaldo" class="preenchimento saldo-barra"></div>
+                    </div>
+                </div>
+
+                <div class="alerta" id="alertaEstoque">
+                    Cadastre uma movimentação para iniciar o controle.
+                </div>
+            </div>
+        </section>
+
+        <section class="historico">
+            <h2>Últimas movimentações</h2>
+            <div id="listaHistorico" class="lista-historico">
+                <p class="vazio">Nenhuma movimentação registrada.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
